@@ -1,0 +1,28 @@
+{{#if blogs.length}}
+  <section>
+    <h2>Your Blogs</h2>
+    <ol>
+      {{#each blogs as |blog|}}
+        <ul>
+          <article class="blog">
+            <div class="title">
+              <a href="/blog/{{id}}">{{title}}</a>
+            </div>
+            <div class="meta">
+              <strong>Posted by
+                {{user.username}}
+                on
+                {{format_date date_created}}</strong>
+            </div>
+          </article>
+          <a href="/dashboard/edit/{{blog.id}}" class="edit-link">Edit Blog</a>
+        </ul>
+      {{/each}}
+    </ol>
+  </section>
+{{/if}}
+
+<div>
+  <button type="submit"><a href="/dashboard/addblog" class="create-btn">Create
+      New Blog</a></button>
+</div>

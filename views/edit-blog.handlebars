@@ -1,0 +1,36 @@
+<article>
+  <a href="/dashboard"> &larr; Back To Dashboard</a>
+  <h2>
+    Edit Blog
+  </h2>
+  <form class="edit-blog-form">
+    <div>
+      <input name="blog-title" type="text" size="60" value="{{blog.title}}" />
+    </div>
+    <div>
+      <textarea name="blog-text" type="text">{{blog.blog_text}}</textarea>
+    </div>
+    <div>
+    <button type="submit">Save Blog</button>
+    <button type="button" class="delete-blog-btn">*Delete Blog*</button>
+    </div>
+  </form>
+</article>
+
+<form class="comment-form">
+  <div>
+    <textarea name="comment-body"></textarea>
+  </div>
+
+  <div>
+    <button type="submit">Add Comment</button>
+  </div>
+</form>
+
+{{> comments post.comments}}
+
+{{#if logged_in}}
+<script src="/javascript/edit-blog.js"></script>
+<script src="/javascript/delete-blog.js"></script>
+<script src="/javascript/comment.js"></script>
+{{/if}}

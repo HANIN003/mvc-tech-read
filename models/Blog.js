@@ -20,7 +20,7 @@ Blog.init(
       },
     },
 
-    blog_text: {
+    content: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
@@ -44,6 +44,7 @@ Blog.init(
   },
   {
     sequelize,
+    timestamps: true,
     freezeTableName: true,
     underscored: true,
     modelName: "blog",

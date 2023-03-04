@@ -1,63 +1,37 @@
 const router = require("express").Router();
-const { User, Blog, Comment } = require("../../models");
+const { Blog } = require("../../models");
 const withAuth = require("../../utils/auth");
 
-router.get("/", (req, res) => {
-  Blog.findAll({ include: [User, Comment] })
-    .then((dbBlogs) => {
-      res.json(dbBlogs);
-    })
-    .catch((err) => {
-      console.log(err);
-      res.status(500).json(err);
+router.post("/", withAuth, async (req, res) => {
+  try {
+    const newBlog = await Blog.create({
+      ...req.body,
+      user_id: req.session.user_id,
     });
-});
 
-router.get("/:id", (req, res) => {
-  Blog.findByPk(req.params.id, { include: [User, Comment] })
-    .then((dbBlog) => {
-      res.json(dbBlog);
-    })
-    .catch((err) => {
-      console.log(err);
-      res.status(500).json(err);
-    });
-});
-
-router.post("/", withAuth, (req, res) => {
-  if (!req.session.user) {
-    return res.status(401).json({ msg: "You are not logged in." });
+    res.status(200).json(newBlog);
+  } catch (err) {
+    res.status(400).json(err);
   }
-  Blog.create({
-    title: req.body.title,
-    content: req.body.content,
-    userId: req.session.user.id,
-  })
-    .then((newBlog) => {
-      res.json(newBlog);
-    })
-    .catch((err) => {
-      console.log(err);
-      res.status(500).json(err);
-    });
 });
 
-router.put("/:id", withAuth, (req, res) => {
-  if (!req.session.user) {
-    return res.status(401).json({ msg: "You are not logged in." });
+router.put("/:id", withAuth, async (req, res) => {
+  try {
+    const updateBlog = await Blog.update(
+      {
+        title: req.body.title,
+        content: req.body.content,
+      },
+      {
+        where: {
+          id: req.params.id,
+        },
+      }
+    );
+    res.status(200).json(updateBlog);
+  } catch (err) {
+    res.status(500).json(err);
   }
-  Blog.update(req.body, {
-    where: {
-      id: req.params.id,
-    },
-  })
-    .then((updatedBlog) => {
-      res.json(updatedBlog);
-    })
-    .catch((err) => {
-      console.log(err);
-      res.status(500).json(err);
-    });
 });
 
 router.delete("/:id", withAuth, async (req, res) => {

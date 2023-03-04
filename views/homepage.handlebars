@@ -1,7 +1,5 @@
-<ol class="blog-list">
-{{#each blogs as |blog|}}
-  <ul>
-      {{> blog-info post }}
-  </ul>
-{{/each}}
-</ol>
+<div class="blogs">
+    {{#each blogs as |blog|}}
+    {{> blogcard blog}}
+    {{/each}}
+</div>

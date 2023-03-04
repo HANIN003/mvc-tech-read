@@ -1,14 +1,10 @@
-<div class="comments">
-  {{#each this}}
-    <section class="comment">
-      <div class="meta">
-        {{user.username}}
+{{#each this}}
+  <div class="flex">
+    <div class="float-left">
+      <p><strong>{{user.username}}: </strong>{{comment}}
         on
-        {{format_date date_created}}
-      </div>
-      <div class="text">
-        {{comment_text}}
-      </div>
-    </section>
-  {{/each}}
-</div>
+        {{formatDate created_at}}</p>
+    </div>
+  </div>
+
+{{/each}}

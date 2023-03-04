@@ -1,36 +1,32 @@
-<article>
-  <a href="/dashboard"> &larr; Back To Dashboard</a>
-  <h2>
-    Edit Blog
-  </h2>
-  <form class="edit-blog-form">
-    <div>
-      <input name="blog-title" type="text" size="60" value="{{blog.title}}" />
+<div class="card">
+  <h2 class="card-header">Edit Your Post</h2>
+  <form class="card-body edit-form">
+
+    <div class="form-group">
+      <label class="form-label">Title:</label>
+      <input
+        type="text"
+        class="form-input"
+        name="post-title"
+        value="{{post.title}}"
+      />
     </div>
-    <div>
-      <textarea name="blog-text" type="text">{{blog.blog_text}}</textarea>
+
+    <div class="form-group">
+      <label class="form-label">Content:</label>
+      <textarea
+        class="form-textarea form-input"
+        name="post-content"
+      >{{post.content}}</textarea>
     </div>
-    <div>
-    <button type="submit">Save Blog</button>
-    <button type="button" class="delete-blog-btn">*Delete Blog*</button>
+
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary"><i
+          class="bi bi-pencil"
+        ></i>Edit Post</button>
     </div>
+
   </form>
-</article>
 
-<form class="comment-form">
-  <div>
-    <textarea name="comment-body"></textarea>
-  </div>
-
-  <div>
-    <button type="submit">Add Comment</button>
-  </div>
-</form>
-
-{{> comments post.comments}}
-
-{{#if logged_in}}
-<script src="/javascript/edit-blog.js"></script>
-<script src="/javascript/delete-blog.js"></script>
-<script src="/javascript/comment.js"></script>
-{{/if}}
+</div>
+<script src="/js/edit-blog.js"></script>

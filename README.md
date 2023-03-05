@@ -1,4 +1,4 @@
-# MVC-TECH-READ
+# MVC-TECH-READ **Work In Progress**
 
 ## Description
 This repo was created to show an application based on a CMS-style blog. It allows users to publish blog posts and comment on other posts.

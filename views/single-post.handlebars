@@ -1,0 +1,28 @@
+<p class="col-md-6 col-lg-4 mb-5">Please log in to leave comments</p>
+<div class="card col-md-6 col-lg-4 mb-5">
+    <div class="card-header">
+        <h5 class="card-title float-left">{{blog.title}}</h5>
+        <h8 class="card-subtitle mb-2 float-right">Posted by {{blog.user.username}} on {{format_date blog.created_at}}</h6>
+    </div>  
+    <div class="card-body">  
+        <p class="card-text">{{blog.content}}</p>
+    </div>
+    <div class="card-body comment">
+            {{> comments blog.comments}}
+    </div>
+</div> 
+
+<input type="hidden" name="post-id" value="{{blog.id}}"/>
+
+{{#if loggedIn}}
+<div class="card">
+    <div class="card-header"></div>
+    <form class="card-body comment-form">
+        <p class="form-label">Leave Comment:</p>
+        <textarea class="form-input" id="comment" name="comment-body"></textarea>    
+        <button type="submit" class="btn btn-primary">Submit Comment</button>        
+    </form>               
+</div>
+{{/if}}
+
+<script src="/js/comment.js"></script>

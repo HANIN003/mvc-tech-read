@@ -14,10 +14,11 @@ h2,
 h3,
 h4,
 h5,
-h6 {
+h6,
+h8 {
     font-weight: 700;
     margin: 0;
-    color: var(--light);
+    color: var(--primary);
     line-height: 1.25;
 }
 
@@ -62,8 +63,8 @@ main {
       padding: 10px;
   }
   
-.card-header h2 {
-    color: var(--primary);
+.card-header {
+    color: var(--secondary);
   }  
   
   .btn {
@@ -74,7 +75,7 @@ main {
     display: block;
     margin: 5px 0;
     border-radius: var(--border-radius);
-    color: var(--light);
+    color: var(--primary);
     border: none;
     outline: none;
     background-color: var(--secondary);
@@ -82,8 +83,8 @@ main {
   }
   
   .btn:hover {
-    color: var(--light);
-    background-color: var(--tertiary);
+    color: var(--primary);
+    background-color: var(--secondary);
     transform: translate(0, 0);
     cursor: pointer;
   }
@@ -101,18 +102,14 @@ main {
     padding: 1em;
     margin-bottom: .5em;
     height: 100px;
-}
-
-.navbar {
-    width: 100%;
-    padding: 1em;
-    margin-bottom: .5em;
     background-color: var(--secondary);
 }
 
 .nav-item {
     margin: 0 40px;
     display: inline-block;
+    font-size: 1.5rem;
+    color: var(--primary);
 }
   
 .nav-item a {
@@ -122,7 +119,7 @@ main {
 
 .card {
     margin: 0 0 20px 0;
-    border: 3px solid var(--light);
+    border: 3px solid var(--secondary);
     border-radius: var(--border-radius);
     width: 600px;
   }
@@ -134,6 +131,14 @@ main {
     border-radius: 10 10 0 0;
     display: inline-block;
   }
+
+  .blog-card {
+    margin: 0 0 20px 0;
+    border: 3px solid var(--secondary);
+    border-radius: var(--border-radius);
+    width: 95%;
+  }
+
 .float-left {
   float: left;
 } 
@@ -152,6 +157,11 @@ main {
     padding: 1%;
     text-align: center;
   }
+
+.card-text {
+  color: var(--secondary);
+  background-color: var(--primary);
+}
 .card-footer {
   color: var(--light);
     background-color: var(--secondary);

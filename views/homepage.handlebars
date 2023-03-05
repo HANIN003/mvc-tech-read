@@ -1,5 +1,8 @@
-<div class="blogs">
-    {{#each blogs as |blog|}}
-    {{> blogcard blog}}
-    {{/each}}
-</div>
+<ol>
+<!-- posts array -->
+{{#each blogs as |blog|}}
+  <ul>
+      {{> blog-info blog }}
+  </ul>
+{{/each}}
+</ol>

@@ -15,33 +15,20 @@
   </head>
 
   <body class="flex-column min-100-vh">
-    <nav class="navbar custom-navbar navbar-expand-lg fixed-top">
+    <div class="jumbotron jumbotron-fluid">
       <div class="container">
-        <div>
-          <a class="nav-item nav-link" href="/"><i
-              class="bi bi-house"
-            ></i>Home</a>
-          <a class="nav-item nav-link" href="/dashboard"><i
-              class="bi bi-card-list"
-            ></i>Dashboard</a>
+        <h1 class="display-4 float-left">The Tech Blog</h1>
+        <div class="float-right">
+          <a class="nav-item nav-link" href="/">Home</a>
+          <a class="nav-item nav-link" href="/dashboard">Dashboard</a>
           {{#if loggedIn}}
-            <a class="nav-item nav-link" href="/login" id="logout"><i
-                class="bi bi-box-arrow-right"
-              ></i>Logout</a>
+            <a class="nav-item nav-link" href="/login" id="logout">Logout</a>
           {{else}}
-            <a class="nav-item nav-link" href="/login"><i
-                class="bi bi-box-arrow-in-right"
-              ></i>Login</a>
+            <a class="nav-item nav-link" href="/login">Login</a>
           {{/if}}
         </div>
       </div>
-    </nav>
-
-    <header class="text-center">
-      <div class="container d-flex align-items-center flex-column">
-        <h1 id="header">Welcome to Selina's Tech Blog</h1>
-      </div>
-    </header>
+    </div>
 
     <main class="col-auto">
       {{{body}}}

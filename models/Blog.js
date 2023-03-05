@@ -28,7 +28,7 @@ Blog.init(
       },
     },
 
-    date_created: {
+    created_at: {
       type: DataTypes.DATE,
       allowNull: false,
       defaultValue: DataTypes.NOW,
